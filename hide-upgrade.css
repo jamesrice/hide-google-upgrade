@@ -1,0 +1,23 @@
+/* Applied at document_start so the button never flashes in before the JS sweep runs. */
+
+/* Elements the script has positively identified. */
+[data-hide-upgrade] {
+  display: none !important;
+}
+
+/* Static, attribute-based matches. These are unambiguous enough to hide up front:
+   Google labels the promo control itself, so no text-content guessing is needed. */
+a[aria-label^="Upgrade" i],
+button[aria-label^="Upgrade" i],
+[role="button"][aria-label^="Upgrade" i],
+a[data-tooltip^="Upgrade" i],
+button[data-tooltip^="Upgrade" i],
+[role="button"][data-tooltip^="Upgrade" i],
+
+/* Links that point straight at a Workspace sales / billing surface. */
+a[href*="workspace.google.com/pricing"],
+a[href*="workspace.google.com/business/signup"],
+a[href*="workspace.google.com/intl"][href*="pricing"],
+a[href*="one.google.com/storage/upgrade"] {
+  display: none !important;
+}
